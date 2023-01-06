@@ -5,12 +5,18 @@ require('dotenv').config()
 const {ENVIROMENT, PORT} = process.env;
 
 
+
+const testRoutes = require('./routes/testRoutes');
+
+
 const app = express();
 
 
 //middleware setup
 app.use(morgan(ENVIROMENT));
 app.use(bodyParser.json());
+
+app.use('/names', testRoutes);
 
 
 
